@@ -114,6 +114,11 @@ You can add more tools by editing `data_sci_pkg.lst` and adding new blocks:
 And then extending the script to parse `[MYTOOLS]` as needed.
 
 ---
+## TO DO List
+
+[ ] Bring nvim configurations for data science development
+
+---
 
 ## 📜 License
 
@@ -123,4 +128,4 @@ MIT License
 
 ## 🙌 Credits
 
-Developed by [Your Name](https://github.com/yourusername) to simplify and modularize high-performance data science setup on Arch Linux.
+Developed by [Luis Antolin](https://github.com/antolin-luis) to simplify and modularize high-performance data science setup on Arch Linux.
