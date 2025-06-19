@@ -1,0 +1,58 @@
+# data_sci_pkg.lst
+# List of applications for a Data Science development environment
+# Format: [CATEGORY] install_method package_name
+
+# --- MLOps ---
+[MLOPS] pacman docker
+[MLOPS] pacman docker-compose
+[MLOPS] yay mlflow
+[MLOPS] yay dvc
+[MLOPS] pacman prometheus
+[MLOPS] pip uvicorn
+[MLOPS] pip gunicorn
+
+# --- Productivity ---
+[PRODUCTIVITY] pacman tmux
+[PRODUCTIVITY] pacman fzf
+[PRODUCTIVITY] pacman ripgrep
+[PRODUCTIVITY] pacman bat
+[PRODUCTIVITY] pacman httpie
+[PRODUCTIVITY] pacman direnv
+[PRODUCTIVITY] pacman htop
+[PRODUCTIVITY] pacman ncdu
+
+# --- Visualization & Docs ---
+[VISUALIZATION] pip streamlit
+[VISUALIZATION] pacman pandoc
+[VISUALIZATION] yay marp-cli
+
+# --- Python & R Base Stack ---
+[BASE] pacman python
+[BASE] pacman python-pip
+[BASE] pacman ipython
+[BASE] pacman jupyterlab
+[BASE] pacman r
+[BASE] yay rstudio-desktop-bin
+[BASE] pacman texlive-core
+[BASE] pacman texmaker
+[BASE] pacman latexmk
+[BASE] pacman python-virtualenv
+
+# --- Python Packages ---
+[PYTHON_PKGS] pip numpy
+[PYTHON_PKGS] pip pandas
+[PYTHON_PKGS] pip scipy
+[PYTHON_PKGS] pip matplotlib
+[PYTHON_PKGS] pip seaborn
+[PYTHON_PKGS] pip scikit-learn
+[PYTHON_PKGS] pip statsmodels
+[PYTHON_PKGS] pip xgboost
+[PYTHON_PKGS] pip lightgbm
+[PYTHON_PKGS] pip catboost
+[PYTHON_PKGS] pip shap
+[PYTHON_PKGS] pip lime
+[PYTHON_PKGS] pip optuna
+[PYTHON_PKGS] pip plotly
+[PYTHON_PKGS] pip sqlalchemy
+[PYTHON_PKGS] pip psycopg2-binary
+[PYTHON_PKGS] pip pymysql
