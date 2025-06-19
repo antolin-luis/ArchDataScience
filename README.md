@@ -1,119 +1,117 @@
-# Arch Linux for Data Science – Customized Setup
+# Arch Linux for Data Science – Modular Setup
 
-This repository provides a setup script and configuration guide to turn your Arch Linux installation into a powerful, GPU-ready development environment tailored for:
+This repository provides a modular and customizable setup for turning your Arch Linux environment into a professional-grade platform for:
 
 - 📊 Data Science
 - 🤖 Machine Learning
-- 🧪 Scientific Computing
-- 🎛️ Visualization and Dashboards
+- ⚙️ MLOps & Deployment
+- 🧠 Scientific Computing
+- 🖥️ GPU-ready Workloads
 
-It is also fully compatible with **Wayland compositors** like **Hyprland** and includes special handling for Electron-based apps like **RStudio**.
-
----
-
-## 🚀 Features
-
-- ⚙️ Minimal or full installation modes
-- 🧮 Scientific Python stack (numpy, pandas, matplotlib, scikit-learn, etc.)
-- 🧠 Machine Learning libraries (xgboost, lightgbm, catboost, optuna)
-- 📈 Visualization tools (plotly, dash, streamlit)
-- 🧬 R and RStudio (with Wayland fix for Hyprland)
-- 💻 IDEs and editors: VS Code, RStudio, Geany, QtCreator, Neovim
-- 🧵 CLI tools: zsh, fzf, ripgrep, bat, htop, etc.
-- 🎮 NVIDIA GPU support (drivers, CUDA, cuDNN, PyTorch, TensorFlow)
-- 🔒 Python `venv` support (no environment is auto-created)
+It uses a list-driven approach (`data_sci_pkg.lst`) to declaratively manage the installation of categorized tools via `pacman`, `yay`, and `pip`.
 
 ---
 
-## 📦 Installation
+## 📦 Structure
 
-### 1. Clone this repository
+### 🔹 `data_sci_pkg.lst`
 
-```bash
-git clone https://github.com/yourusername/arch-ds-setup.git
-cd arch-ds-setup
-chmod +x install_scientific_tools_arch.sh
+This file contains a categorized list of applications in the format:
+
+```
+[CATEGORY] install_method package_name
 ```
 
-### 2. Run the script
+For example:
 
-Choose an installation mode:
-
-| Mode         | Description                                 |
-|--------------|---------------------------------------------|
-| `--minimal`  | Python, R, LaTeX only                        |
-| `--full`     | Full Data Science environment                |
-| `--gpu`      | Only GPU stack (NVIDIA drivers + CUDA)       |
-| `--full-gpu` | Full environment + GPU support               |
-
-```bash
-./install_scientific_tools_arch.sh --full-gpu
 ```
+[MLOPS] pacman docker
+[PYTHON_PKGS] pip numpy
+```
+
+Categories currently supported:
+- `BASE` – Core Python/R stack
+- `PYTHON_PKGS` – Scientific & ML Python libraries
+- `MLOPS` – Tools for deployment, tracking, monitoring
+- `PRODUCTIVITY` – Terminal utilities & automation
+- `VISUALIZATION` – Tools for rendering or presenting data
 
 ---
 
-## 🖥️ RStudio on Hyprland / Wayland
+### 🔹 `install_scientific_tools.sh`
 
-RStudio is an Electron-based app and may not render correctly under Wayland (e.g., Hyprland).
+This script reads the `.lst` file and installs tools according to category.
 
-This script **automatically detects Hyprland** and creates a wrapper:
+#### 🛠 Usage
 
 ```bash
+chmod +x install_scientific_tools.sh
+
+# Install the full environment
+./install_scientific_tools.sh --full
+
+# Or selectively install categories
+./install_scientific_tools.sh --mlops
+./install_scientific_tools.sh --base
+./install_scientific_tools.sh --productivity
+```
+
+A log file will be generated: `install_scientific_tools.log`
+
+---
+
+## 🔧 What’s Included (Highlights)
+
+### ✅ Core Tools
+- Python, pip, JupyterLab, IPython
+- R and RStudio (Hyprland-safe wrapper if applicable)
+- Virtual environment support (`python-virtualenv`)
+- LaTeX tools: `texlive-core`, `latexmk`, `texmaker`
+
+### ✅ Python Data Stack
+- `numpy`, `pandas`, `scipy`, `matplotlib`, `seaborn`
+- `scikit-learn`, `statsmodels`, `xgboost`, `lightgbm`, `catboost`
+- `optuna`, `shap`, `lime`, `sqlalchemy`, `psycopg2-binary`
+
+### ✅ MLOps Stack
+- `docker`, `docker-compose`
+- `mlflow`, `dvc`
+- `prometheus`
+- `uvicorn`, `gunicorn`
+
+### ✅ Productivity Tools
+- `tmux`, `fzf`, `ripgrep`, `bat`, `direnv`, `httpie`, `ncdu`, `htop`
+
+### ✅ Visualization & Docs
+- `streamlit`, `pandoc`, `marp-cli`
+
+---
+
+## 🖥️ Hyprland Compatibility
+
+If RStudio is installed and Hyprland is detected, the script creates a wrapper at:
+
+```
 ~/.local/bin/rstudio
 ```
 
-That runs:
+This ensures proper Electron rendering via:
 
 ```bash
-unset ELECTRON_OZONE_PLATFORM_HINT
-exec /usr/bin/rstudio "$@"
-```
-
-This ensures proper rendering. The script also ensures `~/.local/bin` is in your `$PATH`.
-
----
-
-## 💡 VS Code on Wayland
-
-VS Code works best when launched with Wayland flags:
-
-```bash
-ELECTRON_OZONE_PLATFORM_HINT=auto code --ozone-platform=wayland
-```
-
-You may optionally create your own wrapper in `~/.local/bin/code`.
-
----
-
-## 🧪 Python Virtual Environment
-
-This setup **does not automatically create a virtual environment**, but includes `venv` support:
-
-```bash
-python -m venv ~/ds-env
-source ~/ds-env/bin/activate
-```
-
-You are encouraged to isolate dependencies this way.
-
----
-
-## 🗂️ Files in this Repo
-
-```
-arch-ds-setup/
-├── install_scientific_tools_arch.sh  # Main setup script
-└── README.md                         # Documentation
+unset ELECTRON_OZONE_PLATFORM_HINT && rstudio
 ```
 
 ---
 
-## 🛠️ To-Do
+## ✅ Extending This Setup
 
-- Add Conda/Mamba integration
-- Create archiso-based bootable ISO image
-- Add `.desktop` entries for Wayland-compatible RStudio
-- Optional tiling WM workflow setup (e.g., Hyprland, i3, Sway)
+You can add more tools by editing `data_sci_pkg.lst` and adding new blocks:
+
+```
+[MYTOOLS] pip somepackage
+```
+
+And then extending the script to parse `[MYTOOLS]` as needed.
 
 ---
 
@@ -125,4 +123,4 @@ MIT License
 
 ## 🙌 Credits
 
-Developed by [Your Name](https://github.com/yourusername) to enable reproducible, high-performance data science on Arch Linux.
+Developed by [Your Name](https://github.com/yourusername) to simplify and modularize high-performance data science setup on Arch Linux.
