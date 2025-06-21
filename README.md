@@ -116,8 +116,9 @@ And then extending the script to parse `[MYTOOLS]` as needed.
 ---
 ## TO DO List
 
-- [ ] Bring nvim configurations for data science development
-
+- [X] Bring nvim configurations for data science development
+- [ ] change $EDITOR depending on type of IDE (nvim or VSCode)
+  - this change should take place in the .zshrc file 
 ---
 
 ## 📜 License
