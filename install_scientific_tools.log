@@ -1,0 +1,57 @@
+
+[+] Installing category: BASE
+[pacman] Installing python
+[pacman] Installing python-pip
+[pacman] Installing ipython
+[pacman] Installing jupyterlab
+[pacman] Installing r
+[yay] Installing rstudio-desktop-bin
+[pacman] Installing texlive-core
+[pacman] Installing texmaker
+[pacman] Installing latexmk
+[pacman] Installing python-virtualenv
+
+[+] Installing category: PYTHON_PKGS
+[pip] Installing numpy
+[pip] Installing pandas
+[pip] Installing scipy
+[pip] Installing matplotlib
+[pip] Installing seaborn
+[pip] Installing scikit-learn
+[pip] Installing statsmodels
+[pip] Installing xgboost
+[pip] Installing lightgbm
+[pip] Installing catboost
+[pip] Installing shap
+[pip] Installing lime
+[pip] Installing optuna
+[pip] Installing plotly
+[pip] Installing sqlalchemy
+[pip] Installing psycopg2-binary
+[pip] Installing pymysql
+
+[+] Installing category: MLOPS
+[pacman] Installing docker
+[pacman] Installing docker-compose
+[yay] Installing mlflow
+[yay] Installing dvc
+[pacman] Installing prometheus
+[pip] Installing uvicorn
+[pip] Installing gunicorn
+
+[+] Installing category: PRODUCTIVITY
+[pacman] Installing tmux
+[pacman] Installing fzf
+[pacman] Installing ripgrep
+[pacman] Installing bat
+[pacman] Installing httpie
+[pacman] Installing direnv
+[pacman] Installing htop
+[pacman] Installing ncdu
+
+[+] Installing category: VISUALIZATION
+[pip] Installing streamlit
+[pacman] Installing pandoc
+[yay] Installing marp-cli
+
+✅ Installation complete. See log: install_scientific_tools.log

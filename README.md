@@ -119,6 +119,8 @@ And then extending the script to parse `[MYTOOLS]` as needed.
 - [X] Bring nvim configurations for data science development
 - [ ] change $EDITOR depending on type of IDE (nvim or VSCode)
   - this change should take place in the .zshrc file 
+- [ ] Need to check error messages in docker/docker-compose in sci install script
+- [ ] Need to mix installations from Alternative and unchanged sci install script
 ---
 
 ## 📜 License
