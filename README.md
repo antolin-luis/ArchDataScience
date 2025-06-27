@@ -121,6 +121,7 @@ And then extending the script to parse `[MYTOOLS]` as needed.
   - this change should take place in the .zshrc file 
 - [ ] Need to check error messages in docker/docker-compose in sci install script
 - [ ] Need to mix installations from Alternative and unchanged sci install script
+- [ ] configure /usr/share/sddm/themes/Corners/theme.conf to make the image in the greeting screen more customizable (line 3 'Backgrounds')
 ---
 
 ## 📜 License
@@ -132,4 +133,3 @@ MIT License
 ## 🙌 Credits
 
 Developed by [Luis Antolin](https://github.com/antolin-luis) to simplify and modularize high-performance data science setup on Arch Linux.
-
