@@ -133,4 +133,3 @@ MIT License
 
 Developed by [Luis Antolin](https://github.com/antolin-luis) to simplify and modularize high-performance data science setup on Arch Linux.
 
-gitrepo
